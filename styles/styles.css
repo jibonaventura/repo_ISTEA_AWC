@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family:'Courier New', Courier, monospace;
+}
+
+header {
+    background-color: bisque;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+body {
+    background-color: #f0f0f0;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.5;
+}
+footer {
+    background-color: bisque;
+    color: white;
+    text-align: center;
+
+}
+
+.new-products{
+    background-color: rgb(230, 213, 193);
+    width: 300px;
+    height: 400px;
+
+    padding: 0px;
+    margin: 25px;
+
+    display: inline-block;
+}
+
+h3{
+    font-size: small;
+}
+p{
+    font-size: 30px;
+}
