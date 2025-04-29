@@ -12,8 +12,7 @@ header {
     color: white;
     padding: 10px 0;
     text-align: center;
-}
-header h1 {
+} header h1 {
     font-size: 2em;
     margin-bottom: 10px;
 }
@@ -23,7 +22,6 @@ body {
     color: rgb(255, 255, 255);
     font-size: 15px;
     line-height: 1.5;
-
     h1{
         padding-top: 10px;
         margin-left: 30px;
@@ -48,6 +46,7 @@ main {
     flex-grow: 1;
 }
 
+/*Navigation bar*/
 nav{
     background-color: #653a74;
     padding: 10px;
@@ -58,32 +57,51 @@ nav{
         gap: 10rem;
         list-style:none;
         a{
+            padding: 14px;
             color: #f0f0f0;
             text-decoration: none;
+            font-family: monospace;
         }a:hover{
+            width: 100%;
             background-color: #2929296b;
         }
     }
 }
 
+/*Content*/
 .container {
     display: flex;
     min-height: calc(100vh - 170px);
 }
 
+/*Filters*/ 
 aside {
-    min-width: 400px;
-    width: 400px;
+    min-width: 300px;
+    width: 300px;
     padding: 1.5rem;
     border-right: 1px solid #ddd;
+
+    h2, h3, label{
+    font-family: monospace;
+    }
+}
+.filters{
+    display:grid;
+        margin-left: 10px;
+}
+.check{
+    margin-right: 5px;
 }
 
+
+/*Product Grid*/
 .product-space{
     display: grid;
     grid-template-columns: repeat(3, 25%);
     gap: 2.5rem;
 }
 
+/*Product Cards*/
 .new-products{
     color: rgb(61, 61, 61);
     background-color: #d3d3d3;
@@ -94,7 +112,7 @@ aside {
         flex-direction: column;
         img{
             width: 100%;
-            height: 100%
+            height: 80%;
         }
         button{
             width: 100%;
@@ -102,6 +120,7 @@ aside {
             color: rgb(255, 255, 255);
             border: none;
             padding: 5px;
+            font-family: monospace;
         } button:hover{
             background-color: #292929;
         }
