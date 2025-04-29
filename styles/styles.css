@@ -87,7 +87,7 @@ aside {
 }
 .filters{
     display:grid;
-        margin-left: 10px;
+    margin-left: 10px;
 }
 .check{
     margin-right: 5px;
@@ -132,4 +132,14 @@ aside {
             margin-left: 20px;
             flex-grow: 1;
         }
+}
+
+/*Form*/
+form{
+    display: grid;
+    width: 600px;
+    padding: 40px;
+    gap:25px;
+    border-radius: 2px;
+    border: 1px solid #ddd;
 }

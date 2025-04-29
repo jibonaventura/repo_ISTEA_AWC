@@ -3,23 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto</title>
+    <title>Game-Bay!</title>
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
-    <h1>Contactanos</h1>
+    <header>
+        <h1>Game-Bay!</h1>
+    </header>
 
-    <form action ="" method="post">  
-        <input type="text" name="Nombre" id="Nombre" placeholder="Tu nombre.." required>
-        <br>
+    <nav>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="./Index.html">Productos</a></li>
+            <li><a href="./Contact.html">Contacto</a></li>
+        </ul>
+    </nav>
 
-        <input type="Email" name="Email" id="Email" placeholder="Tu mail..." required>
-        <br>
+    <div class="container">
+        <main>
+            <h1>Contactanos</h1>  
+            <form action ="" method="post">  
 
-        <textarea name="Consulta" id="Consulta" rows="5" placeholder="Tu consulta..." ></textarea>
-        <br>
+            <input type="text" name="Nombre" id="Nombre" placeholder="Tu nombre.." required>
 
-        <input type="Submit" value="Enviar">
-    </form>
+            <input type="Email" name="Email" id="Email" placeholder="Tu mail..." required>
+
+            <textarea name="Consulta" id="Consulta" rows="5" placeholder="Tu consulta..." ></textarea>
+
+            <input type="Submit" value="Enviar">
+            </form>
+        </main>
+    </div>
+
+    <footer>
+        <p>Copyright Game-Bay! - 2025. Todos los derechos reservados &copy;</p>
+        <a href="./AltaProducto.html">Publica tu producto</a>
+        <a href="./Contact.html">Contacto</a>
+    </footer>
 </body>
 </html>
