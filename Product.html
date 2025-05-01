@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alta de Producto</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Game-Bay!</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a class="on-page" href="#">Inicio</a></li>
+            <li><a href="./Index.html">Productos</a></li>
+            <li><a href="./Contact.html">Contacto</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <main> 
+            <li>
+                    <p><a class="go-back" href="./Home.html">Volver atrás
+                    <img src="./imgs/Place_Holder_IMG.png" width="25" height="25"></a></p> <!--cambiar la imagen del placeholder-->    
+            </li>
+            <h1>Publica tu producto</h1>
+            <form action ="" method="post">
+                <input type="Email" name="Email" id="Email" placeholder="Tu mail..." required>
+
+                <label for="categoria">¿Qué producto? elegí una categoría de la siguiente lista:</label>
+                    <select id="categoria" name="categoria">
+                        <option value="consola">Consola</option>
+                        <option value="repuestos">Repuestos</option>
+                        <option value="otros">Otros</option>
+                    </select>
+
+                <input type="text" name="Marca" id="Marca" placeholder="Escribí la marca..." required>
+    
+                <textarea name="Ficha tecnica" id="Ficha tecnica" rows="20" placeholder="Escribí la ficha técnica..." required></textarea >
+
+                <fieldset>
+                        <legend>Selecciona el estado del producto:</legend>
+                        <input type="radio" id="Opcion1" name="Estado" value="Nuevo" />
+                        <label for="Opcion1">Nuevo</label>
+                        <input type="radio" id="Opcion2" name="Estado" value="Usado" />
+                        <label for="Opcion2">Usado</label>
+                        <input type="radio" id="Opcion3" name="Estado" value="Reacondicionado" />
+                        <label for="Opcion3">Reacondicionado</label>
+                </fieldset>
+
+                <label for="Imagen">Selecciona una imagen del producto:</label>
+                <input type="file" id="Imagen" name="Imagen" accept="image/png, image/jpeg"/>
+
+                <input id="Precio" type="number" name="Precio" placeholder = "Escribí el valor en pesos..." required/>
+
+                <input type="Submit" value="Enviar" class="forms-button"> 
+            </form>
+        </main> 
+    </div>
+    
+    <footer>
+        <div class = "copyright">
+        <p>Copyright Game-Bay! - 2025. Todos los derechos reservados &copy;</p>    
+        </div>
+    </footer>
+    </form>
+</body>
+</html>

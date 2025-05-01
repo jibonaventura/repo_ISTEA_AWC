@@ -27,7 +27,7 @@ const stateReCheckBox = document.querySelector('#state-re');
 
 function createProductCard(product){
     const card = document.createElement('article');
-    card.classList.add('new-products');
+    card.classList.add('product-cards');
 
     const img = document.createElement('img');
     img.src = product.image;

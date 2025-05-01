@@ -31,14 +31,10 @@ body {
 footer {
     background-color: #663277;
     color: white;
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    a{
-        color: #f0f0f0;
-        text-decoration: none;
-    }a:hover{
-        background-color: #29292965;
-    }
-    
+    padding: 10px;
 }
 
 main {
@@ -76,6 +72,7 @@ nav{
   
 /*Content*/
 .container {
+    list-style:none;
     display: flex;
     min-height: calc(100vh - 170px);
 
@@ -113,7 +110,7 @@ aside {
 }
 
 /*Product Cards*/
-.new-products{
+.product-cards{
     color: rgb(61, 61, 61);
     background-color: #d3d3d3;
         border-radius: 2px;
@@ -146,7 +143,25 @@ aside {
         }
 }
 
-/*Contact-Form*/
+/*Home-page*/
+.homepage{
+    li{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        font-family: monospace;
+        resize: none;
+    }
+    a{
+        text-decoration: none;
+        font-family: monospace;
+        color: #f0f0f0;
+    }
+}
+
+
+
+/*Contact-Form & ProductAdd-Form*/
 form{
     display: grid;
     margin: auto;
@@ -156,17 +171,28 @@ form{
     border-radius: 2px;
     border: 1px solid #ddd;
 }
-.contact-button{
+.forms-button{
         width: 100%;
         background-color: #979797;
         color: rgb(255, 255, 255);
         border: none;
         padding: 10px;
         font-family: monospace;
-}.contact-button:hover{
+}.forms-button:hover{
     background-color: #292929;
 }
 .form-text{
     font-family: monospace;
     resize: none;
+}
+
+/*go-back in product-form*/
+.go-back{
+    display: inline-block; 
+    text-decoration: none;
+    font-family: monospace;
+    color: #f0f0f0;
+    img{
+        display: grid;
+    }  
 }
