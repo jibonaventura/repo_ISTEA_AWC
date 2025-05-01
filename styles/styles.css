@@ -51,7 +51,7 @@ nav{
         justify-content: center;
         list-style:none;
         overflow: hidden;
-        margin: 0px;
+        margin: auto;
         padding: 0px;
         height: 50px;
         a{
@@ -77,6 +77,8 @@ nav{
     min-height: calc(100vh - 170px);
 
     h1{
+    margin: auto;
+    padding: 25px 0 25px;
     text-align: center;
     font-family: monospace;   
     }
@@ -108,6 +110,14 @@ aside {
     grid-template-columns: repeat(3, 25%);
     gap: 2.5rem;
 }
+/*Product Grid on Home*/
+.new-products{
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 30%);
+    gap: 4rem;
+}
+
 
 /*Product Cards*/
 .product-cards{
@@ -118,6 +128,8 @@ aside {
         height: 100%;
         display: flex;
         flex-direction: column;
+        transition: transform .2s;
+        margin: auto;
         img{
             width: 100%;
             height: 80%;
@@ -127,11 +139,13 @@ aside {
             background-color: #979797;
             color: rgb(255, 255, 255);
             border: none;
+            border-bottom: solid black;
             padding: 5px;
             font-family: monospace;
             transition:background 0.5s ease;
-        } button:hover{
+        }button:hover{
             background-color: #292929;
+            border-bottom: solid rgb(255, 255, 255);
         }
     font-size:small;
         h3{
@@ -141,6 +155,8 @@ aside {
             margin-left: 20px;
             flex-grow: 1;
         }
+}.product-cards:hover{
+    transform: scale(1.05);
 }
 
 /*Home-page*/
@@ -159,8 +175,6 @@ aside {
     }
 }
 
-
-
 /*Contact-Form & ProductAdd-Form*/
 form{
     display: grid;
@@ -178,8 +192,10 @@ form{
         border: none;
         padding: 10px;
         font-family: monospace;
+        border-bottom: solid black;
 }.forms-button:hover{
     background-color: #292929;
+    border-bottom: solid rgb(255, 255, 255);
 }
 .form-text{
     font-family: monospace;
