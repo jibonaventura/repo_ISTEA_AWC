@@ -1,5 +1,4 @@
 @import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap);
-
 * {
     box-sizing: border-box;
     margin: 0px;
@@ -8,17 +7,18 @@
 }
 
 header {
-    background-color: #663277;
+    background-color: #201f72d8;
     color: white;
     padding: 15px 0;
     text-align: center;
 } header h1 {
+    font-family: Arial;
     font-size: 5em;
-    text-transform: uppercase;
+    text-shadow: black 2px 8px;
 }
 
 body {
-    background-color: #1a1616;
+    background-color: #807ed49d;
     color: rgb(255, 255, 255);
     font-size: 15px;
     line-height: 1.5;
@@ -29,7 +29,7 @@ body {
 }
 
 footer {
-    background-color: #663277;
+    background-color: #201f72d8;
     color: white;
     display: flex;
     flex-direction: column;
@@ -44,7 +44,7 @@ main {
 
 /*Navigation bar*/
 nav{
-    background-color: #653a74;
+    background-color: #4a48c47a;
     text-align: center;
     ul{
         list-style:none;  
@@ -95,6 +95,9 @@ aside {
     h2, h3, label{
     font-family: monospace;
     }
+    h3{
+    margin-left: -10px;
+    }
 }
 .filters{
     display:grid;
@@ -116,12 +119,17 @@ aside {
     display: grid;
     grid-template-columns: repeat(2, 30%);
     gap: 4rem;
+    background-color: #4a48c47a;
+    padding: 15px 0px;
+    border-radius: 2px;
+    box-shadow: rgb(255, 255, 255) 10px 10px;
 }
 
 /*Product Cards*/
 .product-cards{
     color: rgb(61, 61, 61);
     background-color: #d3d3d3;
+    box-shadow: black 10px 10px;
         border-radius: 2px;
         max-width: 480px;
         height: 100%;
@@ -131,7 +139,7 @@ aside {
         margin: auto;
         img{
             width: 100%;
-            height: 80%;
+            height:100%;
         }
         button{
             width: 100%;
@@ -157,7 +165,6 @@ aside {
 }.product-cards:hover{
     transform: scale(1.05);
 }
-
 /*Home-page*/
 .homepage{
     li{
@@ -166,11 +173,6 @@ aside {
         justify-content: center;
         font-family: monospace;
         resize: none;
-    }
-    a{
-        text-decoration: none;
-        font-family: monospace;
-        color: #f0f0f0;
     }
 }
 

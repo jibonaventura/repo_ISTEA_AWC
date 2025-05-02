@@ -16,6 +16,61 @@ const products = [
         description: "nuevo",
         image: "./imgs/playstation-3.png",
         price: "400.000"
+    },
+    {
+        name: "Nintendo Super Famicom - Consola Nintendo",
+        description: "usado",
+        image: "./imgs/nintendo-super-famicom.png",
+        price: "250.000"
+    },
+    {
+        name: "Atari 2600 - Consola Atari",
+        description: "reacondicionado",
+        image: "./imgs/atari-2600.png",
+        price: "160.000"  
+    },
+    {
+        name: "Nintendo Entertainment System - Consola Nintendo",
+        description: "usado",
+        image: "./imgs/nintendo-nes.png",
+        price: "172.000"
+    }
+    ,
+    {
+        name: "Nintendo 64 - Consola Nintendo",
+        description: "usado",
+        image: "./imgs/nintendo-64.png",
+        price: "330.000"
+    },
+    {
+        name: "Playstation 2 - Consola Sony",
+        description: "reacondicionado",
+        image: "./imgs/playstation-2.png",
+        price: "160.000"  
+    },
+    {
+        name: "Nintendo Wii - Consola Nintendo",
+        description: "usado",
+        image: "./imgs/nintendo-wii.png",
+        price: "250.000"
+    },
+    {
+        name: "Joystick Playstation - Control Sony",
+        description: "reacondicionado",
+        image: "./imgs/playstation-1-joy.png",
+        price: "40.000"
+    },
+    {
+        name: "Joystick Gamecube - Control Nintendo",
+        description: "reacondicionado",
+        image: "./imgs/gamecube-joy.png",
+        price: "170.000"
+    },
+    {
+        name: "Joystick Playstation 2 - Control Sony",
+        description: "nuevo",
+        image: "./imgs/playstation-2-joy.png",
+        price: "190.000"
     }
 ];
 
@@ -24,6 +79,8 @@ const searchInput = document.querySelector('#input-search-products');
 const stateNewCheckBox = document.querySelector('#state-new');
 const stateUsedCheckBox = document.querySelector('#state-used');
 const stateReCheckBox = document.querySelector('#state-re');
+const consoleCheckBox = document.querySelector('#cat-console');
+const controllerCheckBox = document.querySelector('#cat-controller');
 
 function createProductCard(product){
     const card = document.createElement('article');
@@ -78,8 +135,10 @@ function filterProducts(text){
     const newState = !stateNewCheckBox.checked || product.description == "nuevo";
     const usedState = !stateUsedCheckBox.checked || product.description == "usado";
     const reState = !stateReCheckBox.checked || product.description == "reacondicionado";
+    const catConsole = !consoleCheckBox.checked || product.name.toLowerCase().includes("consola");
+    const catController = !controllerCheckBox.checked || product.name.toLowerCase().includes("joystick");
 
-        return product.name.toLowerCase().includes(text.toLowerCase()) && newState && usedState && reState;
+        return product.name.toLowerCase().includes(text.toLowerCase()) && newState && usedState && reState && catConsole && catController;
     });
     grid.innerHTML = '';
     renderProducts(filteredProducts);
@@ -96,6 +155,12 @@ stateUsedCheckBox.addEventListener('change', (e) => {
     filterProducts(searchInput.value);
 })
 stateReCheckBox.addEventListener('change', (e) => {
+    filterProducts(searchInput.value);
+})
+consoleCheckBox.addEventListener('change', (e) => {
+    filterProducts(searchInput.value);
+})
+controllerCheckBox.addEventListener('change', (e) => {
     filterProducts(searchInput.value);
 })
 
