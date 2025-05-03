@@ -82,6 +82,7 @@ nav{
     padding: 25px 0 25px;
     text-align: center;
     font-family: monospace;   
+    text-shadow: black 0px 4px;
     }
 }
 
@@ -234,6 +235,8 @@ form{
     .product-space,.new-products {
         grid-template-columns: 1fr;
         gap: 2rem;
+        box-shadow: none;
+        background-color: transparent
     }
 
     form {
