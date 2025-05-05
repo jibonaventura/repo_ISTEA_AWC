@@ -18,7 +18,7 @@ const products = [
         price: "400.000"
     },
     {
-        name: "Nintendo Super Famicom - Consola Nintendo",
+        name: "Super Nintendo - Consola Nintendo",
         description: "usado",
         image: "./imgs/nintendo-super-famicom.png",
         price: "250.000"
@@ -55,7 +55,7 @@ const products = [
         price: "250.000"
     },
     {
-        name: "Joystick Playstation - Control Sony",
+        name: "Joystick Playstation 1 - Control Sony",
         description: "reacondicionado",
         image: "./imgs/playstation-1-joy.png",
         price: "40.000"

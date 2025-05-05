@@ -6,18 +6,18 @@
     font-family:'Courier New', Courier, monospace;
 }
 
-header {
+header{
     background-color: #201f72d8;
     color: white;
     padding: 15px 0;
     text-align: center;
-} header h1 {
+} header h1{
     font-family: Arial;
     font-size: 5em;
     text-shadow: black 2px 8px;
 }
 
-body {
+body{
     background-color: #807ed49d;
     color: rgb(255, 255, 255);
     font-size: 15px;
@@ -28,7 +28,7 @@ body {
     }
 }
 
-footer {
+footer{
     background-color: #201f72d8;
     color: white;
     display: flex;
@@ -45,14 +45,10 @@ main {
 /*Navigation bar*/
 nav{
     background-color: #4a48c47a;
-    text-align: center;
     ul{
         list-style:none;  
-        margin: 0;
-        padding: 0;
         display: flex;
         justify-content: center;
-        font-size: 0;
     }
     a{
         text-decoration: none;
@@ -61,25 +57,24 @@ nav{
         padding: 20px 70px;
         display:block;
         font-size: 20px;
-        text-align: center;
         }a:hover{
             background-color: #2929296b;
         }
 }
-.on-page {
+.on-page{
     background-color: #0000004d;
 }
 
   
 /*Content*/
-.container {
+.container{
     list-style:none;
     display: flex;
     min-height: calc(100vh - 170px);
 
     h1{
     margin: auto;
-    padding: 25px 0 25px;
+    padding: 25px 0;
     text-align: center;
     font-family: monospace;   
     text-shadow: black 0px 4px;
@@ -87,7 +82,7 @@ nav{
 }
 
 /*Filters*/ 
-aside {
+aside{
     min-width: 300px;
     width: 300px;
     padding: 1.5rem;
@@ -133,11 +128,9 @@ aside {
     box-shadow: black 10px 10px;
         border-radius: 2px;
         max-width: 480px;
-        height: 100%;
         display: flex;
         flex-direction: column;
         transition: transform .2s;
-        margin: auto;
         img{
             width: 100%;
             height:100%;
@@ -170,10 +163,7 @@ aside {
 .homepage{
     li{
         display: flex;
-        flex-direction: row;
         justify-content: center;
-        font-family: monospace;
-        resize: none;
     }
 }
 
@@ -192,13 +182,13 @@ form{
     }
 }
 .forms-button{
-        width: 100%;
-        background-color: #979797;
-        color: rgb(255, 255, 255);
-        border: none;
-        padding: 10px;
-        font-family: monospace;
-        border-bottom: solid black;
+    width: 100%;
+    background-color: #979797;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px;
+    font-family: monospace;
+    border-bottom: solid black;
 }.forms-button:hover{
     background-color: #292929;
     border-bottom: solid rgb(255, 255, 255);
@@ -208,42 +198,29 @@ form{
     resize: none;
 }
 
-/*go-back in product-form*/
-.go-back{
-    display: inline-block; 
-    text-decoration: none;
-    font-family: monospace;
-    color: #f0f0f0;
-    img{
-        display: grid;
-    }  
-}
-
 @media (max-width: 768px) {
-    nav ul {
+    nav ul{
         flex-direction: column;
+        text-align: center;
     }
 
-    aside {
+    aside{
         border: none;
     }
 
-    .container {
+    .container{
         flex-direction: column;
     }
 
-    .product-space,.new-products {
+    .product-space,.new-products{
         grid-template-columns: 1fr;
         gap: 2rem;
         box-shadow: none;
-        background-color: transparent
+        background-color: transparent;
     }
 
-    form {
+    form{
         width: 90%;
         padding: 20px;
-        box-sizing: border-box; 
-        display: flex;
-        flex-direction: column;
     }
 }
