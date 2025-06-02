@@ -1,78 +1,53 @@
-const products = [
-    {
-        name: "Nintendo Gamecube - Consola Nintendo",
-        description: "usado",
-        image: "./imgs/gamecube.png",
-        price: "300.000"
+const API_TOKEN = 'patvSjQormZgmfkzi.bc4061cdf61176c5f422b8621a07caf753409d9d43db50629515e4b2a7653960';
+const BASE_ID = 'appyonjokIdkozPKl';
+const TABLE_NAME = 'Products';
+const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
+
+const products = [];
+
+const addToAirtable = async (product)=>{
+    
+    const itemAirtable = {
+        fields: product
+    };
+
+    fetch(API_URL, {
+    method: 'POST',
+    headers:{
+        'Authorization': `Bearer ${API_TOKEN}`,
+        'Content-Type': 'application/json'
     },
-    {
-        name: "Playstation 1 - Consola Sony",
-        description: "usado",
-        image: "./imgs/playstation-1.png",
-        price: "160.000"  
-    },
-    {
-        name: "Playstation 3 Slim - Consola Sony",
-        description: "nuevo",
-        image: "./imgs/playstation-3.png",
-        price: "400.000"
-    },
-    {
-        name: "Super Nintendo - Consola Nintendo",
-        description: "usado",
-        image: "./imgs/nintendo-super-famicom.png",
-        price: "250.000"
-    },
-    {
-        name: "Atari 2600 - Consola Atari",
-        description: "reacondicionado",
-        image: "./imgs/atari-2600.png",
-        price: "160.000"  
-    },
-    {
-        name: "Nintendo Entertainment System - Consola Nintendo",
-        description: "usado",
-        image: "./imgs/nintendo-nes.png",
-        price: "172.000"
-    }
-    ,
-    {
-        name: "Nintendo 64 - Consola Nintendo",
-        description: "usado",
-        image: "./imgs/nintendo-64.png",
-        price: "330.000"
-    },
-    {
-        name: "Playstation 2 - Consola Sony",
-        description: "reacondicionado",
-        image: "./imgs/playstation-2.png",
-        price: "160.000"  
-    },
-    {
-        name: "Nintendo Wii - Consola Nintendo",
-        description: "usado",
-        image: "./imgs/nintendo-wii.png",
-        price: "250.000"
-    },
-    {
-        name: "Joystick Playstation 1 - Control Sony",
-        description: "reacondicionado",
-        image: "./imgs/playstation-1-joy.png",
-        price: "40.000"
-    },
-    {
-        name: "Joystick Gamecube - Control Nintendo",
-        description: "reacondicionado",
-        image: "./imgs/gamecube-joy.png",
-        price: "170.000"
-    },
-    {
-        name: "Joystick Playstation 2 - Control Sony",
-        description: "nuevo",
-        image: "./imgs/playstation-2-joy.png",
-        price: "190.000"
-    }
-];
+    
+    body: JSON.stringify(itemAirtable)
+    }).then(data => console.log(data));
+}
+
+const getProducts = async () => {
+    const response = await fetch(API_URL, {
+        method: 'GET',
+        headers:{
+            'Authorization': `Bearer ${API_TOKEN}`,
+            'Content-Type': 'application/json'
+        }
+    });
+
+const data = await response.json();
+console.log('data', data);
+
+const productsMaped = data.records.map(item => {
+    return {
+        title: item.fields.title,
+        description: item.fields.description,
+        thumbnail: item.fields.thumbnail,
+        price: item.fields.price
+        };
+    })
+
+    console.log(productsMaped);
+    renderProducts(productsMaped);
+}
+
+getProducts();
 
 const grid = document.querySelector('.product-space');
 const searchInput = document.querySelector('#input-search-products');
@@ -87,11 +62,11 @@ function createProductCard(product){
     card.classList.add('product-cards');
 
     const img = document.createElement('img');
-    img.src = product.image;
-    img.alt = product.name;
+    img.src = product.thumbnail;
+    img.alt = product.title;
 
     const title = document.createElement('h3');
-    title.textContent = product.name;
+    title.textContent = product.title;
 
     const description = document.createElement('p');
     description.textContent = product.description;
@@ -113,8 +88,8 @@ function createProductCard(product){
 
 function addProduct() {
     const newProduct = {
-        name: "Nuevo Producto",
-        description: "Descripción del nuevo producto",
+        title: "Nuevo Producto",
+        thumbnail: "Descripción del nuevo producto",
         image: "./imgs//Place_Holder_IMG.png",
         price: 0
     };
@@ -130,6 +105,7 @@ function renderProducts(list){
     });
 }
 
+/*arreglar los filtros*/
 function filterProducts(text){
     const filteredProducts = products.filter( product => {
     const newState = !stateNewCheckBox.checked || product.description == "nuevo";
