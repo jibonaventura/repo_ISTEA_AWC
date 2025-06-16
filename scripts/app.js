@@ -4,6 +4,7 @@ const TABLE_NAME = 'Products';
 const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
 
 const products = [];
+const cartProducts = JSON.parse(localStorage.getItem('cart')) || [];
 
 const addToAirtable = async (product)=>{
     
@@ -44,6 +45,10 @@ const productsMaped = data.records.map(item => {
     })
 
     console.log(productsMaped);
+
+    products.length = 0;
+    products.push(...productsMaped);
+
     renderProducts(productsMaped);
 }
 
@@ -75,7 +80,15 @@ function createProductCard(product){
     price.textContent = `$${product.price}`;
 
     const button = document.createElement('button');
-    button.textContent = 'Comprar';
+    button.textContent = 'Agregar';
+    button.addEventListener('click', () => {
+        const exists = cartProducts.find(p => p.title === product.title);
+            if (!exists){
+            cartProducts.push(product);
+            localStorage.setItem('cart', JSON.stringify(cartProducts));
+            console.log('Producto agregado al carrito');
+            }
+    });
 
     card.appendChild(img);
     card.appendChild(title);
@@ -111,14 +124,15 @@ function filterProducts(text){
     const newState = !stateNewCheckBox.checked || product.description == "nuevo";
     const usedState = !stateUsedCheckBox.checked || product.description == "usado";
     const reState = !stateReCheckBox.checked || product.description == "reacondicionado";
-    const catConsole = !consoleCheckBox.checked || product.name.toLowerCase().includes("consola");
-    const catController = !controllerCheckBox.checked || product.name.toLowerCase().includes("joystick");
+    const catConsole = !consoleCheckBox.checked || product.title.toLowerCase().includes("consola");
+    const catController = !controllerCheckBox.checked || product.title.toLowerCase().includes("joystick");
 
-        return product.name.toLowerCase().includes(text.toLowerCase()) && newState && usedState && reState && catConsole && catController;
+        return product.title.toLowerCase().includes(text.toLowerCase()) && newState && usedState && reState && catConsole && catController;
     });
     grid.innerHTML = '';
     renderProducts(filteredProducts);
 }
+
 
 searchInput.addEventListener('input', (e) => {
     filterProducts(e.target.value);
