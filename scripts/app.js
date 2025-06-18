@@ -38,9 +38,10 @@ console.log('data', data);
 const productsMaped = data.records.map(item => {
     return {
         title: item.fields.title,
-        description: item.fields.description,
+        state: item.fields.state,
         thumbnail: item.fields.thumbnail,
-        price: item.fields.price
+        price: item.fields.price,
+        category: item.fields.category
         };
     })
 
@@ -73,8 +74,8 @@ function createProductCard(product){
     const title = document.createElement('h3');
     title.textContent = product.title;
 
-    const description = document.createElement('p');
-    description.textContent = product.description;
+    const state = document.createElement('p');
+    state.textContent = product.state;
 
     const price = document.createElement('p');
     price.textContent = `$${product.price}`;
@@ -92,17 +93,18 @@ function createProductCard(product){
 
     card.appendChild(img);
     card.appendChild(title);
-    card.appendChild(description);
+    card.appendChild(state);
     card.appendChild(price);
     card.appendChild(button);
 
     return card;
 }
 
+/*Modificar la funcion para que sea en base al formulario de alta*/
 function addProduct() {
     const newProduct = {
         title: "Nuevo Producto",
-        thumbnail: "Descripción del nuevo producto",
+        state: "Descripción del nuevo producto",
         image: "./imgs//Place_Holder_IMG.png",
         price: 0
     };
@@ -118,14 +120,13 @@ function renderProducts(list){
     });
 }
 
-/*arreglar los filtros*/
 function filterProducts(text){
     const filteredProducts = products.filter( product => {
-    const newState = !stateNewCheckBox.checked || product.description == "nuevo";
-    const usedState = !stateUsedCheckBox.checked || product.description == "usado";
-    const reState = !stateReCheckBox.checked || product.description == "reacondicionado";
-    const catConsole = !consoleCheckBox.checked || product.title.toLowerCase().includes("consola");
-    const catController = !controllerCheckBox.checked || product.title.toLowerCase().includes("joystick");
+    const newState = !stateNewCheckBox.checked || product.state == "nuevo";
+    const usedState = !stateUsedCheckBox.checked || product.state == "usado";
+    const reState = !stateReCheckBox.checked || product.state == "reacondicionado";
+    const catConsole = !consoleCheckBox.checked || product.category == "consola";
+    const catController = !controllerCheckBox.checked || product.category == "joystick";
 
         return product.title.toLowerCase().includes(text.toLowerCase()) && newState && usedState && reState && catConsole && catController;
     });

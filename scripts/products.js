@@ -9,7 +9,6 @@ const grid =  document.querySelector('#product-list');
 function createProductRow(product) {
     const row = document.createElement('tr');
 
-
     const title = document.createElement('td');
     title.textContent = product.title;
 
@@ -47,7 +46,6 @@ const getProducts = async () => {
         return {
             id: item.id,
             title: item.fields.title,
-            description: item.fields.description,
             thumbnail: item.fields.thumbnail,
             price: item.fields.price
         };

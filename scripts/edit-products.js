@@ -18,8 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if(!data.error) {
                 document.querySelector('#product-title').value = data.fields.title || '';
                 document.querySelector('#product-price').value = data.fields.price || '';
-                document.querySelector('#product-description').value = data.fields.description || '';
+                document.querySelector('#product-state').value = data.fields.state || '';
                 document.querySelector('#product-thumbnail').value = data.fields.thumbnail || '';
+                document.querySelector('#product-category').value = data.fields.category || '';
+                document.querySelector('#product-description').value = data.fields.description || '';
             }
         })
         .catch(error => console.error('Error cargando producto:', error));
@@ -39,8 +41,10 @@ function updateSubmit(event){
 
     const title = document.querySelector('#product-title').value.trim();
     const price = parseFloat(document.querySelector('#product-price').value);
-    const description = document.querySelector('#product-description').value.trim();
+    const state = document.querySelector('#product-state').value.trim();
     const thumbnail = document.querySelector('#product-thumbnail').value.trim();
+    const category = document.querySelector('#product-category').value.trim();
+    const description = document.querySelector('#product-description').value.trim();
 
     if(!title || isNaN(price)) {
         alert('Título y precio son campos requeridos. El precio debe ser numérico.');
@@ -50,8 +54,10 @@ function updateSubmit(event){
     const product = {
         title: title,
         price: price,
-        description: description,
-        thumbnail: thumbnail
+        state: state,
+        thumbnail: thumbnail,
+        category: category,
+        description: description
     };
 
     const itemAirtable = {
