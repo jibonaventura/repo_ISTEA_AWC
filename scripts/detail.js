@@ -1,0 +1,1 @@
+/*completar para mostrar la info en Detail.html*/

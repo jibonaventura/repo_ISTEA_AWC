@@ -37,6 +37,7 @@ console.log('data', data);
 
 const productsMaped = data.records.map(item => {
     return {
+        id: item.id,
         title: item.fields.title,
         state: item.fields.state,
         thumbnail: item.fields.thumbnail,
@@ -89,6 +90,13 @@ function createProductCard(product){
             localStorage.setItem('cart', JSON.stringify(cartProducts));
             console.log('Producto agregado al carrito');
             }
+    });
+    card.style.cursor = 'pointer';
+    title.addEventListener('click', () => {
+        window.location.href = `./Detail.html?id=${product.id}`;
+    });
+    img.addEventListener('click', () => {
+        window.location.href = `./Detail.html?id=${product.id}`;
     });
 
     card.appendChild(img);
