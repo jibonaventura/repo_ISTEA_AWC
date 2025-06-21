@@ -42,7 +42,8 @@ const productsMaped = data.records.map(item => {
         state: item.fields.state,
         thumbnail: item.fields.thumbnail,
         price: item.fields.price,
-        category: item.fields.category
+        category: item.fields.category,
+        brand: item.fields.brand
         };
     })
 
@@ -63,6 +64,9 @@ const stateUsedCheckBox = document.querySelector('#state-used');
 const stateReCheckBox = document.querySelector('#state-re');
 const consoleCheckBox = document.querySelector('#cat-console');
 const controllerCheckBox = document.querySelector('#cat-controller');
+const brandNintenCheckBox = document.querySelector('#brand-ninten');
+const brandSonyCheckBox = document.querySelector('#brand-sony');
+const brandAtariCheckBox = document.querySelector('#brand-atari');
 
 function createProductCard(product){
     const card = document.createElement('article');
@@ -128,15 +132,25 @@ function renderProducts(list){
     });
 }
 
+/*agregar filtro para el precio*/
+
 function filterProducts(text){
     const filteredProducts = products.filter( product => {
-    const newState = !stateNewCheckBox.checked || product.state == "nuevo";
-    const usedState = !stateUsedCheckBox.checked || product.state == "usado";
-    const reState = !stateReCheckBox.checked || product.state == "reacondicionado";
-    const catConsole = !consoleCheckBox.checked || product.category == "consola";
-    const catController = !controllerCheckBox.checked || product.category == "joystick";
 
-        return product.title.toLowerCase().includes(text.toLowerCase()) && newState && usedState && reState && catConsole && catController;
+    const productBrand = product.brand && product.brand.toLowerCase();
+    const productCategory = product.category && product.category.toLowerCase();
+    const productState = product.state && product.state.toLowerCase();
+
+    const newState = !stateNewCheckBox.checked || productState == "nuevo";
+    const usedState = !stateUsedCheckBox.checked || productState == "usado";
+    const reState = !stateReCheckBox.checked || productState == "reacondicionado";
+    const catConsole = !consoleCheckBox.checked || productCategory == "consola";
+    const catController = !controllerCheckBox.checked || productCategory == "joystick";
+    const brandNinten = !brandNintenCheckBox.checked || productBrand == "nintendo";
+    const brandSony = !brandSonyCheckBox.checked || productBrand == "sony";
+    const brandAtari = !brandAtariCheckBox.checked || productBrand == "atari";
+
+        return product.title.toLowerCase().includes(text.toLowerCase()) && newState && usedState && reState && catConsole && catController && brandNinten && brandSony && brandAtari;
     });
     grid.innerHTML = '';
     renderProducts(filteredProducts);
@@ -156,10 +170,21 @@ stateUsedCheckBox.addEventListener('change', (e) => {
 stateReCheckBox.addEventListener('change', (e) => {
     filterProducts(searchInput.value);
 })
+
 consoleCheckBox.addEventListener('change', (e) => {
     filterProducts(searchInput.value);
 })
 controllerCheckBox.addEventListener('change', (e) => {
+    filterProducts(searchInput.value);
+})
+
+brandNintenCheckBox.addEventListener('change', (e) => {
+    filterProducts(searchInput.value);
+})
+brandSonyCheckBox.addEventListener('change', (e) => {
+    filterProducts(searchInput.value);
+})
+brandAtariCheckBox.addEventListener('change', (e) => {
     filterProducts(searchInput.value);
 })
 

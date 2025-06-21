@@ -15,6 +15,8 @@ header{
     font-family: Arial;
     font-size: 5em;
     text-shadow: black 2px 8px;
+    padding-top: 10px;
+    margin-left: 30px;
 }
 
 body{
@@ -22,10 +24,6 @@ body{
     color: rgb(255, 255, 255);
     font-size: 15px;
     line-height: 1.5;
-    h1{
-        padding-top: 10px;
-        margin-left: 30px;
-    }
 }
 
 footer{
@@ -72,7 +70,7 @@ nav{
     display: flex;
     min-height: calc(100vh - 170px);
 
-    h1{
+    .h1-messages{
     margin: auto;
     padding: 25px 0;
     text-align: center;
@@ -197,6 +195,59 @@ form{
     font-family: monospace;
     resize: none;
 }
+
+/* Product Detail*/
+#product-details{
+    justify-content: center;
+    display: flex;
+    margin-top: 20px;
+    color:black;
+    #cart-button{
+        width: 100%;
+            margin-top: 25px;
+            background-color: #979797;
+            color: rgb(255, 255, 255);
+            border: none;
+            border-bottom: solid black;
+            padding: 10px;
+            font-family: monospace;
+            transition:background 0.5s ease;
+        }#cart-button:hover{
+            background-color: #292929;
+            border-bottom: solid rgb(255, 255, 255);
+        }
+    }
+
+#product-details .detail-image{
+    width: 40%;
+    margin-right: 100px;
+    background-color: #d3d3d3;
+    box-shadow: 0 10px 12px 0 rgba(0, 0, 0, 0.2);
+}
+
+#product-details .detail-info{
+    width: 40%;
+    padding: 30px;
+    background-color: #d1d1d12c;
+    box-shadow: 0 10px 12px 0 rgba(0, 0, 0, 0.2);
+}
+
+#product-details .detail-info h4{
+    padding: 40px 0 20px 0; 
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#product-details .detail-info h2{
+    font-size: 30px;
+}
+.detail-desc{
+    margin-top: 20px;
+    color: white;
+    width: 100%;
+}
+
+/*terminar de estilizar el detalle de los productos*/
 
 @media (max-width: 768px) {
     nav ul{
