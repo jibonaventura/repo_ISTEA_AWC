@@ -6,23 +6,6 @@ const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
 const products = [];
 const cartProducts = JSON.parse(localStorage.getItem('cart')) || [];
 
-const addToAirtable = async (product)=>{
-    
-    const itemAirtable = {
-        fields: product
-    };
-
-    fetch(API_URL, {
-    method: 'POST',
-    headers:{
-        'Authorization': `Bearer ${API_TOKEN}`,
-        'Content-Type': 'application/json'
-    },
-    
-    body: JSON.stringify(itemAirtable)
-    }).then(data => console.log(data));
-}
-
 const getProducts = async () => {
     const response = await fetch(API_URL, {
         method: 'GET',
@@ -67,6 +50,8 @@ const controllerCheckBox = document.querySelector('#cat-controller');
 const brandNintenCheckBox = document.querySelector('#brand-ninten');
 const brandSonyCheckBox = document.querySelector('#brand-sony');
 const brandAtariCheckBox = document.querySelector('#brand-atari');
+const minPrice = document.querySelector('#min-price');
+const maxPrice = document.querySelector('#max-price');
 
 function createProductCard(product){
     const card = document.createElement('article');
@@ -112,19 +97,6 @@ function createProductCard(product){
     return card;
 }
 
-/*Modificar la funcion para que sea en base al formulario de alta*/
-function addProduct() {
-    const newProduct = {
-        title: "Nuevo Producto",
-        state: "Descripción del nuevo producto",
-        image: "./imgs//Place_Holder_IMG.png",
-        price: 0
-    };
-
-    const card = createProductCard(newProduct);
-    grid.appendChild(card);
-}
-
 function renderProducts(list){
     list.forEach( product => {
         const card = createProductCard(product);
@@ -132,9 +104,10 @@ function renderProducts(list){
     });
 }
 
-/*agregar filtro para el precio*/
-
 function filterProducts(text){
+    const inputMinPrice = parseFloat(minPrice.value);
+    const inputMaxPrice = parseFloat(maxPrice.value);
+
     const filteredProducts = products.filter( product => {
 
     const productBrand = product.brand && product.brand.toLowerCase();
@@ -150,12 +123,13 @@ function filterProducts(text){
     const brandSony = !brandSonyCheckBox.checked || productBrand == "sony";
     const brandAtari = !brandAtariCheckBox.checked || productBrand == "atari";
 
-        return product.title.toLowerCase().includes(text.toLowerCase()) && newState && usedState && reState && catConsole && catController && brandNinten && brandSony && brandAtari;
+    const priceRange = (isNaN(inputMinPrice) || product.price >= inputMinPrice) && (isNaN(inputMaxPrice) || product.price <= inputMaxPrice);
+
+        return product.title.toLowerCase().includes(text.toLowerCase()) && newState && usedState && reState && catConsole && catController && brandNinten && brandSony && brandAtari && priceRange;
     });
     grid.innerHTML = '';
     renderProducts(filteredProducts);
 }
-
 
 searchInput.addEventListener('input', (e) => {
     filterProducts(e.target.value);
@@ -163,29 +137,36 @@ searchInput.addEventListener('input', (e) => {
 
 stateNewCheckBox.addEventListener('change', (e) => {
     filterProducts(searchInput.value);
-})
+});
 stateUsedCheckBox.addEventListener('change', (e) => {
     filterProducts(searchInput.value);
-})
+});
 stateReCheckBox.addEventListener('change', (e) => {
     filterProducts(searchInput.value);
-})
+});
 
 consoleCheckBox.addEventListener('change', (e) => {
     filterProducts(searchInput.value);
-})
+});
 controllerCheckBox.addEventListener('change', (e) => {
     filterProducts(searchInput.value);
-})
+});
 
 brandNintenCheckBox.addEventListener('change', (e) => {
     filterProducts(searchInput.value);
-})
+});
 brandSonyCheckBox.addEventListener('change', (e) => {
     filterProducts(searchInput.value);
-})
+});
 brandAtariCheckBox.addEventListener('change', (e) => {
     filterProducts(searchInput.value);
-})
+});
+
+minPrice.addEventListener('input', () => {
+    filterProducts(searchInput.value);
+});
+maxPrice.addEventListener('input', () => {
+    filterProducts(searchInput.value);
+});
 
 renderProducts(products);

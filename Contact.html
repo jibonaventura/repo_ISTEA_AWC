@@ -23,15 +23,15 @@
     <div class="container">
         <main>
             <h1 class="h1-messages">¡Envianos tu consulta!</h1>  
-            <form action ="" method="post">  
+            <form id="contactForm">  
 
-                <input type="text" name="Nombre" id="Nombre" placeholder="Tu nombre.." class ="form-text" required>
+                <input type="text" name="Nombre" id="name" placeholder="Tu nombre.." class ="form-text" required>
 
-                <input type="Email" name="Email" id="Email" placeholder="Tu mail..." class ="form-text" required>
+                <input type="Email" name="Email" id="mail" placeholder="Tu mail..." class ="form-text" required>
 
-                <textarea name="Consulta" id="Consulta" rows="5" placeholder="Tu consulta..." class ="form-text" required></textarea>
+                <textarea name="Consulta" id="query" rows="5" placeholder="Tu consulta..." class ="form-text" required></textarea>
 
-                <input type="Submit" value="Enviar" class="forms-button">
+                <button type="Submit" class="forms-button">Enviar</button>
             </form>
         </main>
     </div>
@@ -42,4 +42,5 @@
             </div>
     </footer>
 </body>
+<script src="./scripts/contact.js"></script>
 </html>

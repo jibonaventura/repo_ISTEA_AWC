@@ -21,12 +21,17 @@
     </nav>
     <div class="container">
         <aside>
-            <!-- agregar filtro para el precio-->
             <h2>Filtros</h2>
             <div class="search-filter">
                 <input id="input-search-products" type="text" placeholder="Buscar productos">
             </div>
             <div class="filters">
+            <h3>Precio:</h3>
+            <div class="price-filter-container">
+            <input id="min-price" type="number" class="price-filter" min="0" placeholder="mínimo"/>
+            -
+            <input id="max-price" type="number" class="price-filter" min="9999999" placeholder="máximo"/>
+            </div>
             <h3>Estado:</h3>
                 <label><input id="state-new" type="checkbox" class="filters-checkbox">Nuevo</label>
                 <label><input id="state-used" type="checkbox" class="filters-checkbox">Usado</label>

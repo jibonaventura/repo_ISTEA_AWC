@@ -100,6 +100,13 @@ aside{
 .filters-checkbox{
     margin-right: 5px;
 }
+.price-filter{
+    width: 30%;
+}
+.price-filter-container{
+    display: flex;
+    gap:1px;
+}
 
 /*Product Grid*/
 .product-space{
