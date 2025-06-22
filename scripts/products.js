@@ -18,6 +18,7 @@ function createProductRow(product) {
     const actions = document.createElement('td');
    
     const button = document.createElement('button');
+    button.className = 'forms-button';
     button.textContent = 'Modificar';
     button.addEventListener('click', () => {
         window.location.href = `../admin/Edit-Products.html?id=${product.id}`;

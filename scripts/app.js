@@ -78,7 +78,9 @@ function createProductCard(product){
             cartProducts.push(product);
             localStorage.setItem('cart', JSON.stringify(cartProducts));
             console.log('Producto agregado al carrito');
+            alert('Producto agregado al carrito');
             }
+            else alert('El producto ya se encuentra en el carrito');
     });
     card.style.cursor = 'pointer';
     title.addEventListener('click', () => {
@@ -125,7 +127,10 @@ function filterProducts(text){
 
     const priceRange = (isNaN(inputMinPrice) || product.price >= inputMinPrice) && (isNaN(inputMaxPrice) || product.price <= inputMaxPrice);
 
-        return product.title.toLowerCase().includes(text.toLowerCase()) && newState && usedState && reState && catConsole && catController && brandNinten && brandSony && brandAtari && priceRange;
+        return product.title.toLowerCase().includes(text.toLowerCase()) && 
+        newState && usedState && reState && 
+        catConsole && catController && 
+        brandNinten && brandSony && brandAtari && priceRange;
     });
     grid.innerHTML = '';
     renderProducts(filteredProducts);

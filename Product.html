@@ -16,7 +16,12 @@
             <li><a class="on-page" href="./Home.html">Inicio</a></li>
             <li><a href="./Index.html">Productos</a></li>
             <li><a href="./Contact.html">Contacto</a></li>
-            <li><a href="./Cart.html">Carrito</a></li>
+            <li><p><a href="./Cart.html">
+            <img src="./imgs/cart-icon.png" class="cart-icon"></a></p> 
+            </li>
+            <li><p><a href="./admin/admin-select.html">
+            <img src="./imgs/gear-icon.png" class="cart-icon"></a></p> 
+            </li>
         </ul>
     </nav>
     <div class="container">
@@ -26,50 +31,58 @@
                 <img src="./imgs/back-icon.png" width="80" height="50"></a></p> 
             </li>
             <h1 class="h1-messages">Publica tu producto</h1>
-            <form action ="" method="post">
+            <form id="product-form" onsubmit="createClientProduct(event)">
 
-                <input type="Email" name="Email" id="Email" placeholder="Tu mail..." class ="form-text" required>
+                <input type="Email" name="Email" id="product-mail" placeholder="Tu mail..." class ="form-text" required>
+
+                <input type="Nombre" name="Name" id="product-name" placeholder="El producto..." class ="form-text" required>
                 
                 <div>
                 <label for="categoria" class ="form-text">Elegí una categoría de la siguiente lista:</label>
-                    <select id="categoria" name="categoria" class ="form-text">
+                    <select id="product-category" name="categoria" class ="form-text">
                         <option value="consola">Consola</option>
-                        <option value="repuestos">Repuestos</option>
-                        <option value="otros">Otros</option>
+                        <option value="controles">Controles</option>
                     </select>
                 </div>
 
-                <input type="text" name="Marca" id="Marca" placeholder="Escribí la marca..." class ="form-text" required>
+                <input type="text" name="Marca" id="product-brand" placeholder="Escribí la marca..." class ="form-text" required>
     
-                <textarea name="Ficha tecnica" id="Ficha tecnica" rows="15" placeholder="Escribí la ficha técnica..." class ="form-text" required></textarea>
+                <textarea name="Descripcion" id="product-description" rows="15" placeholder="Escribí descripción..." class ="form-text" required></textarea>
 
                 <fieldset>
                         <legend class ="form-text">Selecciona el estado del producto:</legend>
-                            <input type="radio" id="Opcion1" name="Estado" value="Nuevo" required/>
-                        <label for="Opcion1" class ="form-text">Nuevo</label>
-                            <input type="radio" id="Opcion2" name="Estado" value="Usado"/>
-                        <label for="Opcion2" class ="form-text">Usado</label>
-                            <input type="radio" id="Opcion3" name="Estado" value="Reacondicionado"/>
-                        <label for="Opcion3" class ="form-text">Reacondicionado</label>
+                            <input type="radio" id="product-state" name="Estado" value="nuevo" required/>
+                        <label for="state" class ="form-text">Nuevo</label>
+                            <input type="radio" id="product-state" name="Estado" value="usado"/>
+                        <label for="state" class ="form-text">Usado</label>
+                            <input type="radio" id="product-state" name="Estado" value="reacondicionado"/>
+                        <label for="state" class ="form-text">Reacondicionado</label>
                 </fieldset>
 
-                <div>
-                <label for="Imagen" class ="form-text">Imagen del producto:</label>
-                <input type="file" id="Imagen" name="Imagen" accept="image/png, image/jpeg" class ="form-text" required/>
-                </div>
+               <input type="Imagen" name="Imagen" id="product-thumbnail" placeholder="Url de la imagen..." class ="form-text" required>
                 
-                <input id="Precio" type="number" name="Precio" placeholder = "Escribí el valor en pesos..." class ="form-text" required/>
+                <input type="number" name="Precio" id="product-price" placeholder = "Escribí el valor en pesos..." class ="form-text" min="0" max="9999999" required/>
 
-                <input type="Submit" value="Enviar" class="forms-button"> 
+                <button type="submit" class="forms-button">Enviar</button>
             </form>
         </main> 
     </div>
     
     <footer>
-        <div class = "copyright">
+    <div class="footer-links">
+    <h2>Links Utiles:</h2>
+        <ul>
+        <li><a href="./Home.html">Inicio</a></li>
+         <li><a href="./Index.html">Productos</a></li>
+         <li><a href="./Contact.html">Contacto</a></li>
+         <li><a href="./Cart.html">Carrito</a></li>
+         <li><a href="./admin/admin-select.html">Admin</a></li>
+        </ul>
+    </div>
+        <div class = "footer-copyright">
         <p>Copyright Game-Bay! - 2025. Todos los derechos reservados &copy;</p>    
         </div>
     </footer>
-    </form>
 </body>
+<script src="./scripts/add-product-js"></script>
 </html>

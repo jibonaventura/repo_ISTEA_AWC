@@ -20,22 +20,13 @@
     </nav>
     <div class="container">
         <main> 
-        <li>
-        <p><a class="go-back" href="./View-Products.html">
-        <img src="../imgs/back-icon.png" width="80" height="50"></a></p> 
-        </li>
-            <h1 class="h1-messages">Edición de producto</h1>
-            <form onsubmit="updateSubmit(event)">
-                <input type="text" id='product-brand' placeholder="Marca">
-                <input type="text" id='product-name' placeholder="Nombre Producto">
-                <input type="text" id='product-price' placeholder="Precio">
-                <input type="text" id='product-state' placeholder="Estado">
-                <input type="text" id='product-thumbnail' placeholder="Imagen">
-                <input type="text" id='product-category' placeholder="Categoria">
-                <input type="text" id='product-description' placeholder="Description">
-                <button type="submit" class="forms-button">Actualizar</button>
-            </form>
-        <main> 
+        <div class="Admin-View">
+            <h1 class="h1-messages">Bienvenido Administrador</h1>
+            <h2>¿Qué desea hacer?</h2>
+            <li><a href="./View-Products.html">Ver productos/Modificar existente</a></li>
+            <li><a href="./Add-Product.html">Añadir producto</a></li>
+        </div>    
+        </main> 
     </div> 
 
     <footer>
@@ -54,5 +45,5 @@
         </div>
     </footer>
 </body>
-<script src="../scripts/edit-products.js"></script>
+<script src="../scripts/products.js"></script>
 </html>

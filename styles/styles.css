@@ -26,13 +26,31 @@ body{
     line-height: 1.5;
 }
 
-footer{
-    background-color: #201f72d8;
-    color: white;
+footer {
     display: flex;
     flex-direction: column;
+    background-color: #201f72d8;
+    padding: 20px;
     text-align: center;
-    padding: 10px;
+}
+
+.footer-links h2 {
+    margin-bottom: 10px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+    a{
+    color: white;
+    font-size: 20px;
+    text-decoration: none;    
+    }a:hover {
+    color: #807ed49d;
+}
 }
 
 main {
@@ -63,7 +81,11 @@ nav{
     background-color: #0000004d;
 }
 
-  
+.cart-icon{
+    width: 21px;
+    height: auto;
+}
+
 /*Content*/
 .container{
     list-style:none;
@@ -255,6 +277,53 @@ form{
 }
 
 /*terminar de estilizar el detalle de los productos*/
+
+/*Admin View*/
+.Admin-View{
+    background-color: #4a48c47a;
+    text-align: center;
+    padding: 20px;
+    width: 80%;
+    margin: auto;
+    border: solid #ffffffd8;
+    
+    h2{
+        color: #201f72d8;
+    }
+
+    li{
+        padding: 20px;
+    }
+    a{ 
+        margin: 100px;
+        font-size: 20px;
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+    }a:hover{
+        background-color: #2929296b;  
+        color: #000000;
+    }
+}
+
+.product-table{
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid;
+
+    th, td {
+        text-align: center;
+        padding: 10px;
+    }
+
+    th {
+        background-color: #201f72d8;
+        color: #ffffff;
+    }
+
+    td {
+    color: #201f72d8;
+    }
+}
 
 @media (max-width: 768px) {
     nav ul{

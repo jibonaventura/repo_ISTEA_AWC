@@ -16,7 +16,12 @@
             <li><a href="./Home.html">Inicio</a></li>
             <li><a class="on-page" href="./Index.html">Productos</a></li>
             <li><a href="./Contact.html">Contacto</a></li>
-            <li><a href="./Cart.html">Carrito</a></li>
+            <li><p><a href="./Cart.html">
+            <img src="./imgs/cart-icon.png" class="cart-icon"></a></p> 
+            </li>
+            <li><p><a href="./admin/admin-select.html">
+            <img src="./imgs/gear-icon.png" class="cart-icon"></a></p> 
+            </li>
         </ul>
     </nav>
     <div class="container">
@@ -28,9 +33,9 @@
             <div class="filters">
             <h3>Precio:</h3>
             <div class="price-filter-container">
-            <input id="min-price" type="number" class="price-filter" min="0" placeholder="mínimo"/>
+            <input id="min-price" type="number" class="price-filter" min="0" max="9999999" placeholder="mínimo"/>
             -
-            <input id="max-price" type="number" class="price-filter" min="9999999" placeholder="máximo"/>
+            <input id="max-price" type="number" class="price-filter" min="0" max="9999999" placeholder="máximo"/>
             </div>
             <h3>Estado:</h3>
                 <label><input id="state-new" type="checkbox" class="filters-checkbox">Nuevo</label>
@@ -54,7 +59,17 @@
     </div>
 
     <footer>
-        <div class = "copyright">
+    <div class="footer-links">
+    <h2>Links Utiles:</h2>
+        <ul>
+        <li><a href="./Home.html">Inicio</a></li>
+         <li><a href="./Index.html">Productos</a></li>
+         <li><a href="./Contact.html">Contacto</a></li>
+         <li><a href="./Cart.html">Carrito</a></li>
+         <li><a href="./admin/admin-select.html">Admin</a></li>
+        </ul>
+    </div>
+        <div class = "footer-copyright">
         <p>Copyright Game-Bay! - 2025. Todos los derechos reservados &copy;</p>    
         </div>
     </footer>
