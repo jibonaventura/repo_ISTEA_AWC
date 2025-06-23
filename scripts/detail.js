@@ -45,9 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     };
                         cartProducts.push(product);
                         localStorage.setItem('cart', JSON.stringify(cartProducts));
-                        alert('Producto agregado al carrito');
+                        alert('Producto agregado al carrito.');
                     } else {
-                        alert('El producto ya se encuentra en el carrito');
+                        alert('El producto ya se encuentra en el carrito.');
                     }
                 });
             } else {

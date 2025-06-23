@@ -26,10 +26,10 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   .then(response => response.json())
   .then(data => {
     console.log(data);
-    alert('Consulta enviada con éxito');
+    alert('¡Consulta enviada con éxito!');
   })
   .catch(error => {
-    alert('Error al enviar consulta');
+    alert('Error al enviar consulta.');
     console.error(error);
   });
 });

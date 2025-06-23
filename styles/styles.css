@@ -325,6 +325,58 @@ form{
     }
 }
 
+/*Cart-container*/
+.cart-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+/*Cart-grid*/
+.cart-grid{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    background-color: #4a48c47a;
+    border-radius: 5px;
+    border: 2px solid white;
+    padding: 20px;
+}
+/*Cart-product-card*/
+.product-cart-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding:20px;
+    background-color: #c5c5c57a;
+
+    h3{
+    width: 25%;
+    }
+
+    img{
+    width: 100px;
+    }
+
+    button{
+    width: 100px;
+    height: 50px;
+    }
+
+    p{
+        font-size: 26px;
+        font-weight: bold;
+    }
+}
+
+#buy-button{
+    width: 200px;
+    height: 50px;
+}
+
+/*Incluir en la media query al admin y el detalle de producto*/
 @media (max-width: 768px) {
     nav ul{
         flex-direction: column;
@@ -349,5 +401,27 @@ form{
     form{
         width: 90%;
         padding: 20px;
+    }
+
+    .product-cart-card{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        h3{
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        img{
+            width: 80%;
+            max-width: 150px;
+        }
+    }
+
+    #buy-button{
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
     }
 }

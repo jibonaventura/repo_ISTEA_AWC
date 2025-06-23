@@ -51,13 +51,13 @@ function createProduct(event){
             console.error('Error detallado:', data);
             alert(`Error al crear (${data.error.type}): ${data.error.message}`);
         } else {
-            alert('Producto creado correctamente');
+            alert('Producto creado correctamente.');
             window.location.href = './View-Products.html';
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('Error al crear producto');
+        alert('Error al crear producto.');
     });
 }
 
@@ -102,12 +102,12 @@ function createClientProduct(event){
             console.error('Error detallado:', data);
             alert(`Error al crear (${data.error.type}): ${data.error.message}`);
         } else {
-            alert('Su solicitud ha sido enviada, por favor aguardar contacto');
+            alert('¡Su solicitud ha sido enviada!, por favor aguardar contacto.');
             document.querySelector('#product-form').reset();
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('Error al enviar solicitud');
+        alert('Error al enviar solicitud.');
     });
 }

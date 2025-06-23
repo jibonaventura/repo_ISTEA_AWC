@@ -78,9 +78,9 @@ function createProductCard(product){
             cartProducts.push(product);
             localStorage.setItem('cart', JSON.stringify(cartProducts));
             console.log('Producto agregado al carrito');
-            alert('Producto agregado al carrito');
+            alert('Producto agregado al carrito.');
             }
-            else alert('El producto ya se encuentra en el carrito');     
+            else alert('El producto ya se encuentra en el carrito.');     
     });
     card.style.cursor = 'pointer';
     title.addEventListener('click', () => {
