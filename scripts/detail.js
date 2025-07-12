@@ -43,12 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         category: data.fields.category,
                         title: data.fields.title
                     };
+                        product.quantity = 1;
                         cartProducts.push(product);
-                        localStorage.setItem('cart', JSON.stringify(cartProducts));
-                        alert('Producto agregado al carrito.');
                     } else {
-                        alert('El producto ya se encuentra en el carrito.');
+                        exists.quantity++;
                     }
+                    localStorage.setItem('cart', JSON.stringify(cartProducts));
+                    alert('Producto agregado al carrito.');
                 });
             } else {
                 alert('Producto no encontrado o error en la carga.');

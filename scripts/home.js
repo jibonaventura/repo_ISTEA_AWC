@@ -75,12 +75,15 @@ function createProductCard(product){
     button.addEventListener('click', () => {
         const exists = cartProducts.find(p => p.title === product.title);
             if (!exists){
-            cartProducts.push(product);
+                product.quantity = 1;
+                cartProducts.push(product);
+            }
+            else {
+                exists.quantity++;
+            }
             localStorage.setItem('cart', JSON.stringify(cartProducts));
             console.log('Producto agregado al carrito');
             alert('Producto agregado al carrito.');
-            }
-            else alert('El producto ya se encuentra en el carrito.');     
     });
     card.style.cursor = 'pointer';
     title.addEventListener('click', () => {
