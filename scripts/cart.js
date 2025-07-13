@@ -22,6 +22,9 @@ function createProductCartCard(product) {
     const decrease = document.createElement('button');
     decrease.textContent = '-';
 
+    increase.classList.add('quantity-button');
+    decrease.classList.add('quantity-button');
+
     function updateDisplay() {
     price.textContent = `$${product.price} x${product.quantity}`;
     }
